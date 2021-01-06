@@ -1,0 +1,3 @@
+- Añadir la opcion de poder modificar un pedido
+- Vista para poder añadir pedidos desde tablet (partiendo pantalla con teclado incluido)
+- Vista para cambiar pedidos de nuevos a haciendo

@@ -1,0 +1,54 @@
+.content {
+  width: 20%;
+  float: left;
+  margin-top: 2%;
+  margin-left: 4%;
+  text-align: center;
+  font-size: 2rem;
+}
+.formulario {
+  width: 80%;
+  margin: auto;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+.content .id {
+  font-size: 3rem;
+}
+h1 {
+  text-align: center;
+}
+p {
+  text-align: center;
+}
+.glovo {
+  background-color: yellow;
+}
+.uber {
+  background-color: black;
+  color: white;
+}
+.just-eat {
+  background-color: red;
+}
+.delivero {
+  background-color: aqua;
+}
+.recoger {
+  background-color: orange;
+}
+.orders-body {
+  text-align: center;
+	margin: auto;
+	min-height: 1vh;
+}
+.orders-body .md-6{
+	min-height: 100vh;
+}
+.md-6 {
+  width: 50%;
+  float: left;
+}
+.right-border{
+	border-right: 2px solid black;
+}
