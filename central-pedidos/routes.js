@@ -108,4 +108,8 @@ module.exports = function (env) {
         else
             return false;
     }
+
+    app.post('/integration/gloriafood', async (req, res) => {
+        
+    });
 }

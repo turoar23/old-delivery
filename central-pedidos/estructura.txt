@@ -1,0 +1,5 @@
+rutas:
+    - Gloriafood: /integration/gloriafood
+    - Glovo-produccion: /integration/glovo
+    - Glovo-pruebas: /test/glovo
+    - Uber Eats: /integration/uber-eats
