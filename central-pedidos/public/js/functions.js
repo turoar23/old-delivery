@@ -84,7 +84,7 @@ async function removeOrder(_id) {
 		console.log(error);
 	}
 }
-async function updateOrder(_id, _status){
+async function updateOrder(_id, _status) {
 	const url = url_base + '/updateStatus';
 
 	let payload = {
@@ -98,14 +98,14 @@ async function updateOrder(_id, _status){
 		headers: GLOBAL_CABECERAS
 	};
 
-	try{
+	try {
 		let peticion = await fetch(url, request);
 		let r = await peticion.json();
-		
-		if(r.result){
+
+		if (r.result) {
 			console.log(r.result);
 		}
-	}catch(error){
+	} catch (error) {
 		console.log(error);
 	}
 }
@@ -127,9 +127,10 @@ async function update() {
 
 		if (orders.length > 0) {
 			for (var i = 0; i < orders.length; i++) {
-				var clone = document.importNode(template.content, true);
-				var app = orders[i].app
-				var tipo = "";
+				let clone = document.importNode(template.content, true);
+				let app = orders[i].app
+				let tipo = "";
+				let status = orders[i].status;
 
 				if (app == 'Glovo') tipo = "glovo";
 				else if (app == 'Uber Eats') tipo = 'uber';
@@ -138,18 +139,28 @@ async function update() {
 				else if (app == 'Recoger') tipo = 'recoger';
 
 				clone.querySelector('.content').classList.add(tipo);
-				clone.querySelector('.app').textContent = orders[i].app;
+				clone.querySelector('.app').textContent = app;
 				clone.querySelector('.id').textContent = orders[i].id;
-				clone.querySelector('.status').textContent = orders[i].status;
-				if (clone.querySelector('#remove') != null){
+				clone.querySelector('.status').textContent = status;
+				if (clone.querySelector('#remove') != null) {
 					clone.querySelector('#remove').addEventListener("click", function () {
 						let _id = $(this).parent().find('.id').text()
-						console.log(_id);
 						removeOrder(_id);
 						update();
 					});
 				}
-				if(orders[i].status == 'Preparando')
+				if (clone.querySelector('#ready') != null) {
+					if (status == 'Preparando') {
+						clone.querySelector('#ready').addEventListener("click", function () {
+							let _id = $(this).parent().find('.id').text()
+							updateOrder(_id, 'Listo');
+							update();
+						});
+					}
+					else
+						clone.querySelector('#ready').remove();
+				}
+				if (status == 'Preparando')
 					$('.orders-making').append(clone);
 				else
 					$('.orders').append(clone);

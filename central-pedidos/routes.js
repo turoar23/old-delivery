@@ -8,7 +8,10 @@ module.exports = function (env) {
  * Devuelve la vista que se encarga de mostrar los pedidos actuales
  */
     app.get('/', async (req, res) => {
-        res.render(templates + "/index");
+        //TODO: mirar si este set es necesario
+        res
+            .set("Content-Security-Policy", "default-src *; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'")
+            .render(templates + "/index");
         //res.status(200).send({result: null, err: null});
     });
     /**
@@ -21,10 +24,13 @@ module.exports = function (env) {
      * Devuelve la vista master que tiene funciones CRUD sobre los pedidos
      */
     app.get('/master', async (req, res) => {
-        res.render(templates + '/master', {
-            platforms: ['Recoger', 'Glovo', 'Delivero', 'Uber Eats', 'Just Eats'],
-            status: ['Preparando', 'Listo'],
-        });
+        //TODO: mirar si este set es necesario
+        res
+            .set("Content-Security-Policy", "default-src *; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'")
+            .render(templates + '/master', {
+                platforms: ['Recoger', 'Glovo', 'Delivero', 'Uber Eats', 'Just Eats'],
+                status: ['Preparando', 'Listo'],
+            });
     });
 
     // ---------------------------------------------
@@ -67,10 +73,10 @@ module.exports = function (env) {
         let status = req.body.status;
         order = orders.find(element => element.id == id)
 
-        if (order == null)
+        if (order != null)
             order.status = status;
-
-        console.log("Error, id que no existe");
+        else
+            console.log("Error, id que no existe");
 
         res.status(200).send({ result: 'updated', err: null });
     })
@@ -108,8 +114,4 @@ module.exports = function (env) {
         else
             return false;
     }
-
-    app.post('/integration/gloriafood', async (req, res) => {
-        
-    });
 }

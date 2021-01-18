@@ -1,6 +1,7 @@
 const TelegramBot = require('node-telegram-bot-api');
 
-const token = "1517986952:AAFKUnZZeT2KftkYykFfD66na1zZAx2ob-g";
+const token = process.env.TELEGRAM_TOKEN_BOT;
+const chat_id = process.env.TELEGRAM_CHAT_ID;
 
 const bot = new TelegramBot(token, { polling: true });
 
@@ -17,6 +18,6 @@ bot.onText(/\/echo (.+)/, (msg, match) => {
     bot.sendMessage(chatId, resp);
 });
 exports.notification = function (msg) {
-    bot.sendMessage("-1001340620290", msg, {parse_mode: 'Markdown'});
+    bot.sendMessage(chat_id, msg, { parse_mode: 'Markdown' });
 }
 exports.bot = bot;
