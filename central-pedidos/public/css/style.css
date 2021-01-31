@@ -37,18 +37,41 @@ p {
 .recoger {
   background-color: orange;
 }
+.gloria {
+  background-color: gray;
+}
 .orders-body {
   text-align: center;
-	margin: auto;
-	min-height: 1vh;
+  margin: auto;
+  min-height: 1vh;
 }
-.orders-body .md-6{
-	min-height: 100vh;
+.orders-body .md-6,
+.orders-body .md-4 {
+  min-height: 100vh;
+}
+.md-4 {
+  width: 33.33%;
+  float: left;
+}
+.md-5 {
+  width: 41.66%;
 }
 .md-6 {
   width: 50%;
   float: left;
 }
-.right-border{
-	border-right: 2px solid black;
+.md-8 {
+  width: 66.66%;
+  float: left;
+}
+.right-border {
+  border-right: 2px solid black;
+}
+.grupo{
+  height: 33.33%;
+  border-top: 2px solid black;
+}
+.orders, .grupo-pedido{
+  height: 50%;
+  background-color: gainsboro;
 }

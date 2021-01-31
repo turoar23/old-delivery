@@ -84,12 +84,13 @@ async function removeOrder(_id) {
 		console.log(error);
 	}
 }
-async function updateOrder(_id, _status) {
+async function updateOrder(_id, _status, _group) {
 	const url = url_base + '/updateStatus';
 
 	let payload = {
 		id: _id,
-		status: _status
+		status: _status,
+		group: _group
 	}
 
 	request = {
@@ -137,11 +138,14 @@ async function update() {
 				else if (app == 'Delivero') tipo = 'delivero';
 				else if (app == 'Just Eat') tipo = 'just-eat';
 				else if (app == 'Recoger') tipo = 'recoger';
+				else if (app == 'GloriaFood') tipo = 'gloria';
+				else tipo = 'generico';
 
 				clone.querySelector('.content').classList.add(tipo);
 				clone.querySelector('.app').textContent = app;
 				clone.querySelector('.id').textContent = orders[i].id;
 				clone.querySelector('.status').textContent = status;
+				
 				if (clone.querySelector('#remove') != null) {
 					clone.querySelector('#remove').addEventListener("click", function () {
 						let _id = $(this).parent().find('.id').text()

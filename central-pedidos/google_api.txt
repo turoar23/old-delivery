@@ -1,0 +1,17 @@
+AIzaSyDyHtNxhfMFZ3dLeg1eI4x2v4xhVGtu1f8
+
+
+https://maps.googleapis.com/maps/api/directions/json?
+origin=Toronto&destination=Montreal
+&key=AIzaSyDyHtNxhfMFZ3dLeg1eI4x2v4xhVGtu1f8
+
+// Con esto se calcula la mejor ruta
+https://maps.googleapis.com/maps/api/directions/json?
+origin=53.32016,-6.39449&destination=53.28782,-6.35977
+&key=AIzaSyDyHtNxhfMFZ3dLeg1eI4x2v4xhVGtu1f8
+
+//url para meter la ruta
+https://www.google.com/maps/dir/?api=1&origin=53.32016,-6.39449&destination=53.28782,-6.35977&travelmode=car
+
+
+https://www.google.com/maps/search/?api=1&query=47.5951518,-122.3316393
